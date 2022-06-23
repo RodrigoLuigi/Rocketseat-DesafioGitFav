@@ -1,0 +1,319 @@
+/* ===== CSS RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== ROOT CONFIG ===== */
+:root {
+  font-size: 62.5%;
+  --ff-base: 'Roboto', sans-serif;
+  --ff-heading: 'Roboto Mono', monospace;
+
+  --bg-color: #000000;
+
+  --fc-primary: #ffffff;
+  --fc-secondary: #E1E1E6;
+}
+
+/* ===== BASE ===== */
+body {
+  font-size: 1.6rem;
+  color: var(--fc-primary);
+  font-family: var(--ff-base);
+
+  background: var(--bg-color);
+}
+
+h1 {
+  font-family: var(--ff-heading);
+}
+
+a{
+  text-decoration: none;
+}
+
+/* ===== PAGE CONTENT ===== */
+#page {
+  margin: 0 auto;
+  max-width: 112rem;
+  padding: 2rem; 
+}
+
+/* ===== HEADER / SEARCH ===== */
+header {
+  display: flex; 
+  flex-direction: column;
+
+  gap: 4rem;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center; 
+  gap: 1.6rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  gap: .8rem; 
+}
+
+.search input {
+  color: #7C7C8A;
+  font-weight: bold;
+
+  background: #06181C;
+
+  border-radius: .5rem;
+  border: none;
+
+  width: 100%;
+  padding: 1.6rem;
+}
+
+.search button {
+  display: flex;
+  align-items: center;
+  
+  gap: .8rem;
+
+  padding: 1.2rem 1.2rem;
+
+  background: #065E7C;
+  border-radius: .5rem;
+  border: none;
+
+  color: var(--fc-primary);
+  font-weight: bold;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.search button:hover {
+  background: #05536d;
+}
+
+.search button img{
+  animation: rotate 5000ms linear infinite;
+} 
+
+/* ===== MAIN / TABLE ===== */
+.favorites-table {
+  border: 1px solid #4A808C;
+  border-radius: 1.2rem;
+  -webkit-border-radius: 1.2rem;
+  -moz-border-radius: 1.2rem;
+
+  overflow: hidden;
+
+  margin-top: 8.7rem;
+} 
+
+table{
+  width: 100%;
+  text-align: center;
+
+  border-collapse: collapse;
+}
+
+table * {
+  font-weight: bold;
+  color: var(--fc-secondary);
+} 
+
+table thead{
+  background-color: #092D38;
+}
+
+table tr {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+  border-bottom:  1px solid #4A808C;
+}
+
+table th{
+  padding: 1.6rem 0rem;
+
+}
+table td{
+  padding: 2rem 0.5rem;
+}
+
+table tbody{
+  display: block;
+  overflow-y: overlay;
+  max-height: 30rem;
+
+  scroll-behavior: smooth;
+}
+
+table tbody tr:nth-child(even) {
+  background: rgba(133, 233, 255, 0.076);
+}
+
+table tbody tr:nth-child(odd) {
+  background: transparent;
+}
+
+/* ==== scrollbar Y ===== */
+.favorites-table tbody::-webkit-scrollbar {
+  width: 20px;
+}
+
+ .favorites-table tbody::-webkit-scrollbar-track {
+  background: transparent;
+} 
+
+.favorites-table tbody::-webkit-scrollbar-thumb {
+  padding: 2px;
+  border: 8px solid rgba(0, 0, 0, 0); 
+  background-clip: padding-box;
+  background-color: hsla(191, 31%, 42%, 1);
+  border-radius: 1rem;
+}
+
+.favorites-table tbody::-webkit-scrollbar-corner {
+  background-color: transparent;
+}  
+
+/* ===== USER ROW ===== */
+td.user img {
+  width: 5.6rem;
+  height: 5.6rem;
+
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #4A808C;
+}
+
+td.user span{
+  font-weight: normal;
+
+  padding-top: 8px;
+}
+
+td .remove {
+  background: none;
+  border: none;
+
+  color: red;
+  
+  cursor: pointer;
+  transition: all ease 250ms;
+}
+
+td .remove:active{
+  color: var(--fc-primary);
+  transform: scale(1.1);
+} 
+
+/* ===== CLEAR TABLE ===== */
+.cleanTable{
+  background-image: url(assets/images/background-star.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  height: 30rem;
+}
+
+@keyframes rotate{
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+/* ======== MEDIA QUERIES / RESPONSIVE ========= */
+@media (min-width: 40em){
+  #page{
+    padding: 4rem 2rem;
+  }
+
+  header{
+    flex-direction: row;
+    justify-content: space-between;
+  } 
+
+  .search{
+    gap: 1.8rem;
+  }
+
+  table{
+    text-align: left;
+  }
+  
+  table *{
+  font-size: 2rem;
+  }
+
+  table th{
+    padding: 1.6rem 0rem 1.6rem 4rem;  
+  }
+  table td{
+    padding: 2.4rem 0 2.4rem 4rem;
+  }
+
+}
+
+@media (min-width: 900px){
+  td.user {
+    display: flex;
+    gap: 1.6rem;
+  }
+  
+
+  td.user a{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cleanTable{
+    min-height: 38rem;
+   
+    background-size: cover;
+  }
+}
+
+@media (min-width: 1146px){
+  #page{
+    padding: 6rem 2rem;
+    max-width: 116.4rem;
+
+  }
+  .search{
+    width: auto;
+  }
+  .search input{
+    width: 46.2rem;
+  }
+
+  .search button{
+    padding: 1.2rem 3.2rem;
+  }
+
+  table tr {
+    width: 100%;
+    table-layout: auto;
+  }
+
+  table th,
+  table td{
+    width: 205px;
+  }
+
+  table th:first-child,
+  table td:first-child{
+    width: 50rem;
+  }
+  
+}
