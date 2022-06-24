@@ -50,6 +50,8 @@ header {
 
   align-items: center;
   justify-content: center;
+
+  animation: topDown 900ms ;
 }
 
 .logo {
@@ -116,6 +118,8 @@ header {
   overflow: hidden;
 
   margin-top: 8.7rem;
+
+  animation: bottomToTop 900ms ;
 } 
 
 table{
@@ -152,7 +156,7 @@ table td{
 table tbody{
   display: block;
   overflow-y: overlay;
-  max-height: 30rem;
+  max-height: 34rem;
 
   scroll-behavior: smooth;
 }
@@ -233,6 +237,28 @@ td .remove:active{
   }
 }
 
+@keyframes topDown{
+  0%{
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bottomToTop{
+  0%{
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ======== MEDIA QUERIES / RESPONSIVE ========= */
 @media (min-width: 40em){
   #page{
@@ -246,6 +272,10 @@ td .remove:active{
 
   .search{
     gap: 1.8rem;
+  }
+
+  .search input{
+    max-width: 46.2rem;
   }
 
   table{
@@ -266,6 +296,14 @@ td .remove:active{
 }
 
 @media (min-width: 900px){
+  .search{
+    width: auto;
+  }
+  
+  .search input{
+    width: 46.2rem;
+  }
+
   td.user {
     display: flex;
     gap: 1.6rem;
@@ -277,8 +315,13 @@ td .remove:active{
     flex-direction: column;
   }
 
+  td .remove:hover{
+    color: var(--fc-primary);
+    transform: scale(1.1);
+  } 
+
   .cleanTable{
-    min-height: 38rem;
+    min-height: 34rem;
    
     background-size: cover;
   }
@@ -286,15 +329,7 @@ td .remove:active{
 
 @media (min-width: 1146px){
   #page{
-    padding: 6rem 2rem;
     max-width: 116.4rem;
-
-  }
-  .search{
-    width: auto;
-  }
-  .search input{
-    width: 46.2rem;
   }
 
   .search button{
